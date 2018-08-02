@@ -1,0 +1,66 @@
+---
+####################################################################
+#                     The tidyverse and beyond 
+#                            Workshop 6
+#                     Don't look back in anger
+#                          27th March 2018
+#                        5: RMarkdown Example
+####################################################################
+---
+
+# By placing a hash symbol I have created this header
+
+## Two hash symbols gives me a second header
+
+### And so on
+
+Now I am just writing my text as though I am in a MSWord document. I don't need to worry about keeping the sentences short like in the R scripts or starting each sentence with a #.
+
+*I can put text in italics* or **I can put text in bold**
+
+You have a lot of options available to you, and the documentation is out there to help you. 
+For example, this is how to write in superscript^2^. This is written in subscript~2~.
+
+These are just a few of options available.
+
+To learn more visit [the R Markdown webpage](http://rmarkdown.rstudio.com/)
+
+
+
+### Tables
+Simple tables are straightforward to generate
+
+**Table 1.**  Summary data of the iris data set
+
+Data | `r colnames(iris[1])` | `r colnames(iris[2])`
+------|--------|--------
+Number of data points | `r nrow(iris)` | `r nrow(iris)`
+Mean | `r mean(iris[,1])` | `r mean(iris[,2])`
+Median | `r median(iris[,1])` | `r median(iris[,2])`
+Std dev | `r sd(iris[,1])` | `r sd(iris[,2])`
+
+There are packages out there that make this process easier. For example, pander will take the output of a linear model and give a more presentable table. 
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(pander)
+```
+
+## An example using life expectancy data over time for Ireland
+Let's create a plot and a table of the linear model
+
+```{r plot of Irish data, echo=FALSE}
+library(gapminder)
+ire <‐ filter(gapminder, country == "Ireland")
+ire %>%
+ggplot(aes(year, lifeExp)) +
+geom_line() +
+ggtitle("Full data = ")
+ire_mod <‐ lm(lifeExp ~ year, data = ire)
+
+pander(summary(ire_mod))
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

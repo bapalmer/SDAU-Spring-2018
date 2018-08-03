@@ -1,5 +1,5 @@
 # SDAU-Spring-2018
-Introductory R workshop: The tidyverse and beyond
+*Introductory R workshop: The tidyverse and beyond*
 
 The lecture notes and R scripts given below are from an introductory R workshop hosted by the HRB CRF-C in the Spring of 2018. The lecture notes are punctuated with prompts to jump into the R scripts as you go and to see what we're talking about. All the scripts are composed in such a way, so that you can run each line yourself and get the outputs you expect. At certain points, there are exercises for you to complete yourself, which hopefully will allow you to get a feel for writing your own code. 
 
